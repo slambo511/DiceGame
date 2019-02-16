@@ -45,13 +45,30 @@ def login_attempts(user_info, user_no):
     quit(0)
 
 
-#p1_un = input("Enter your username, player one: ")
-#p1_pw = input("Now, enter your password: ")
-#p2_un = input("Enter your username, player two: ")
-#p2_pw = input("Now, enter your password: ")
-
+# Create two user objects with no information as placeholders for the login_attempts function
 player1 = user("", "", False)
 player2 = user("", "", False)
 
+
+# Call the login_attempts function twice for both players
 login_attempts(player1, "one")
 login_attempts(player2, "two")
+
+# Criteria 1 met.
+
+# 2.Allows each player to roll two 6-sided dice.
+
+# Create a class to represent a die
+class Die:
+    def __init__(self, no_of_sides):
+        self.no_of_sides = no_of_sides
+
+    def roll(self):
+        return random.randint(1, self.no_of_sides)
+
+
+# Testing a dice roll with a 6 sided die
+#   test_die = Die(6)
+#   roll_result = test_die.roll()
+#   print("The test roll is " + str(roll_result))
+# Test successful
