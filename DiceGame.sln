@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "DiceGame", "DiceGame\DiceGame.pyproj", "{E2BDC47E-774E-43B1-9B70-05F0E1432A68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2BDC47E-774E-43B1-9B70-05F0E1432A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2BDC47E-774E-43B1-9B70-05F0E1432A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10E520B0-215B-4320-BAAF-9254B1FC685E}
+	EndGlobalSection
+EndGlobal
