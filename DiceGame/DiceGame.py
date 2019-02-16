@@ -30,26 +30,28 @@ def check_user(username, password):
 
 # Function which handles the number of times a user can login and exits the program if the
 # login attempts fail
-def login_attempts(user_info, user_no):
+def login_attempts(user_info, user_no):    
     for login_attempt in range (1, 4):
         print("Player " + user_no + " login attempt " + str(login_attempt))
+        user_info.user_name = input("Enter your username, player " + user_no + ": ")
+        user_info.user_pw = input("Enter your password: ")
         if check_user(user_info.user_name, user_info.user_pw):
             print("Login successful player " + user_no)
             user_info.is_valid = True
             return
         else:
             print("Login unsuccessful player " + user_no)
-            user_info.user_name = input("Enter your username, player " + user_no + ": ")
-            user_info.user_pw = input("Enter your password: ")
+    print("Too many log in attempts... game exiting...")
+    quit(0)
 
 
-p1_un = input("Enter your username, player one: ")
-p1_pw = input("Now, enter your password: ")
-p2_un = input("Enter your username, player two: ")
-p2_pw = input("Now, enter your password: ")
+#p1_un = input("Enter your username, player one: ")
+#p1_pw = input("Now, enter your password: ")
+#p2_un = input("Enter your username, player two: ")
+#p2_pw = input("Now, enter your password: ")
 
-player1 = user(p1_un, p1_pw, False)
-player2 = user(p2_un, p2_pw, False)
+player1 = user("", "", False)
+player2 = user("", "", False)
 
 login_attempts(player1, "one")
 login_attempts(player2, "two")
