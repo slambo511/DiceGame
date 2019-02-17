@@ -10,11 +10,11 @@ import random
 
 # Class to hold information about the users
 class user:
-    def __init__(self, user_name, user_pw, is_valid):
+    def __init__(self, user_name, user_pw, is_valid, points):
         self.user_name = user_name
         self.user_pw = user_pw
         self.is_valid = is_valid
-
+        self.points = points
 
 # Function which takes the username and passwords entered and cycles throught the Users.csv
 # file. If it finds a username and password that match it returns True otherwise it returns
@@ -37,18 +37,18 @@ def login_attempts(user_info, user_no):
         user_info.user_name = input("Enter your username, player " + user_no + ": ")
         user_info.user_pw = input("Enter your password: ")
         if check_user(user_info.user_name, user_info.user_pw):
-            print("Login successful player " + user_no)
+            print("Login successful player " + user_no + "\n")
             user_info.is_valid = True
             return
         else:
-            print("Login unsuccessful player " + user_no)
+            print("Login unsuccessful player " + user_no + "\n")
     print("Too many log in attempts... game exiting...")
     quit(0)
 
 
 # Create two user objects with no information as placeholders for the login_attempts function
-player1 = user("", "", False)
-player2 = user("", "", False)
+player1 = user("", "", False, 0)
+player2 = user("", "", False, 0)
 
 
 # Call the login_attempts function twice for both players
@@ -89,3 +89,21 @@ class Die:
 #	  each  roll  1  die  and whoever gets the highest score wins (this repeats until 
 #	  someone wins).
 
+def play_game(player_one, player_two):
+    dice_one = Die(6)
+    dice_two = Die(6)
+    input("Player one, press enter to roll your dice...\n")
+    p1_roll_one = dice_one.roll()
+    p1_roll_two = dice_two.roll()
+    p1_roll_total = p1_roll_one + p1_roll_two
+    print("You rolled a " + str(p1_roll_one) + " and a " + str(p1_roll_two) + 
+          " totalling " + str(p1_roll_total) + "\n")
+    input("Player two, press enter to roll your dice...\n")
+    p2_roll_one = dice_one.roll()
+    p2_roll_two = dice_two.roll()
+    p2_roll_total = p2_roll_one + p2_roll_two
+    print("You rolled a " + str(p2_roll_one) + " and a " + str(p2_roll_two) +
+          " totalling " + str(p2_roll_total) + "\n")
+
+    
+play_game(player1, player2)
