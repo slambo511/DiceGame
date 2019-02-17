@@ -5,6 +5,9 @@ import csv
 import random
 
 
+# 1.Allows  two  players  to  enter  their  details,  which  are  then  authenticated  to  
+# ensure  that  they  are authorised players.
+
 # Class to hold information about the users
 class user:
     def __init__(self, user_name, user_pw, is_valid):
@@ -12,8 +15,6 @@ class user:
         self.user_pw = user_pw
         self.is_valid = is_valid
 
-# 1.Allows  two  players  to  enter  their  details,  which  are  then  authenticated  to  
-# ensure  that  they  are authorised players.
 
 # Function which takes the username and passwords entered and cycles throught the Users.csv
 # file. If it finds a username and password that match it returns True otherwise it returns
@@ -58,7 +59,8 @@ login_attempts(player2, "two")
 
 # 2.Allows each player to roll two 6-sided dice.
 
-# Create a class to represent a die
+# Create a class to represent a die, the player can determine the number of sides, so this
+# class can be re-used for different programs
 class Die:
     def __init__(self, no_of_sides):
         self.no_of_sides = no_of_sides
@@ -72,3 +74,6 @@ class Die:
 #   roll_result = test_die.roll()
 #   print("The test roll is " + str(roll_result))
 # Test successful
+
+# 3.Calculates and outputs the points for each round and each player’s total score.
+
