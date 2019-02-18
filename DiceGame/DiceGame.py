@@ -126,6 +126,30 @@ def play_game(player_one, player_two):
     score_handler(player_two, p2_roll_one, p2_roll_two)
     print("Player two, your score is now " + str(player_two.points))
 
+# 4.Allows the players to play 5 rounds.
+
 for i in range (1, 6):
     print("Round " + str(i))
     play_game(player1, player2)
+
+# 5.If  both  players  have  the  same  score  after  5  rounds,  allows  each  player  to  roll  
+# 1  die  each  until  someone wins.
+
+def tie_roll():
+    input("\nPlayer one, press enter to roll...")
+    p1_tie_roll = draw_dice.roll()
+    input("\nPlayer one, press enter to roll...")
+    p2_tie_roll = draw_dice.roll()
+    return p1_tie_roll, p2_tie_roll
+
+
+if player1.points == player2.points:
+    print("\nPoints are equal, a draw has occured!")
+    print("\nYou will now roll a die each until one person wins.")
+    input("\nPress enter to start the tiebreaker.")
+    draw_dice = Die(6)
+    p1_roll, p2_roll = tie_roll()
+    if p1_roll == p2_roll:
+        print("Draw!!! Roll Again")
+    elif p1_roll > p2_roll:
+        print("Player one  ")
