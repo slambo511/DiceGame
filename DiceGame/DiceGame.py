@@ -164,12 +164,28 @@ def tie_breaker():
 
 if player1.points > player2.points:
     print("Player one wins!")
+    winner = "Player 1"
 elif player1.points < player2.points:
     print("Player two wins!")
+    winner = "Player 2"
 else:
     print("Draw, roll again")
-    tie_breaker()
+    winner = tie_breaker()
+    print(winner + " wins the tie break and the game!!!")
+
 
 # 7.Stores the winner’s score, and their name, in an external file.
+
+winner_name = input(winner + " enter your name for the hall of fame: ")
+if winner == "Player 1":
+    winner_username = player1.user_name
+    winner_score = player1.points
+else:
+    winner_username = player2.user_name
+    winner_score = player2.points
+
+with open("Winners.csv", mode='w') as winner_file:
+    winner_writer = csv.writer(winner__file__, delimiter = ',')
+    winner_writer.writerow([winner_username, winner_name, str(winner_score)])
 
 
