@@ -97,10 +97,10 @@ def score_handler(player_info, dice_one, dice_two):
     else:
         player_info.points -= 5
     if dice_one == dice_two:
-        input("You rolled a double, so you get another roll, click enter to roll")
+        input("You rolled a double, so you get another roll, click enter to roll\n")
         extra_die = Die(6)
         extra_roll = extra_die.roll()
-        input("You rolled a " + str(extra_roll) + ", press enter to continue")
+        input("You rolled a " + str(extra_roll) + ", press enter to continue\n")
         player_info.points += extra_roll
     if player_info.points < 0:
         player_info.points = 0
