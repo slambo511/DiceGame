@@ -89,6 +89,23 @@ class Die:
 #	  each  roll  1  die  and whoever gets the highest score wins (this repeats until 
 #	  someone wins).
 
+def score_handler(player_info, dice_one, dice_two):
+    player_info.points += dice_one
+    player_info.points += dice_two
+    if (dice_one + dice_two) % 2 == 0:
+        player_info.points += 10
+    else:
+        player_info.points -= 5
+    if dice_one == dice_two:
+        input("You rolled a double, so you get another roll, click enter to roll")
+        extra_die = Die(6)
+        extra_roll = extra_die.roll()
+        input("You rolled a " + str(extra_roll) + ", press enter to continue")
+        player_info.points += extra_roll
+    if player_info.points < 0:
+        player_info.points = 0
+
+
 def play_game(player_one, player_two):
     dice_one = Die(6)
     dice_two = Die(6)
@@ -98,12 +115,17 @@ def play_game(player_one, player_two):
     p1_roll_total = p1_roll_one + p1_roll_two
     print("You rolled a " + str(p1_roll_one) + " and a " + str(p1_roll_two) + 
           " totalling " + str(p1_roll_total) + "\n")
+    score_handler(player_one, p1_roll_one, p1_roll_two)
+    print("Player one, your score is now " + str(player_one.points))
     input("Player two, press enter to roll your dice...\n")
     p2_roll_one = dice_one.roll()
     p2_roll_two = dice_two.roll()
     p2_roll_total = p2_roll_one + p2_roll_two
     print("You rolled a " + str(p2_roll_one) + " and a " + str(p2_roll_two) +
           " totalling " + str(p2_roll_total) + "\n")
+    score_handler(player_two, p2_roll_one, p2_roll_two)
+    print("Player two, your score is now " + str(player_two.points))
 
-    
-play_game(player1, player2)
+for i in range (1, 6):
+    print("Round " + str(i))
+    play_game(player1, player2)
