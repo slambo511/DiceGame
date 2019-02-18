@@ -143,13 +143,22 @@ def tie_roll():
     return p1_tie_roll, p2_tie_roll
 
 
+# 6.Outputs who has won at the end of the 5 rounds.
+
 if player1.points == player2.points:
     print("\nPoints are equal, a draw has occured!")
     print("\nYou will now roll a die each until one person wins.")
     input("\nPress enter to start the tiebreaker.")
     draw_dice = Die(6)
     p1_roll, p2_roll = tie_roll()
+    print("Player one rolled a " + str(p1_roll) + ", player two rolled a " + str(p2_roll))
     if p1_roll == p2_roll:
         print("Draw!!! Roll Again")
     elif p1_roll > p2_roll:
-        print("Player one  ")
+        print("Player one wins!")
+    else:
+        print("Player two wins|!")
+
+# 7.Stores the winner’s score, and their name, in an external file.
+
+
