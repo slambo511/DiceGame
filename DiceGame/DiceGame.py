@@ -176,7 +176,8 @@ else:
 
 # 7.Stores the winner’s score, and their name, in an external file.
 
-winner_name = input(winner + " enter your name for the hall of fame: ")
+winner_name = input("\n" + winner + " enter your name for the hall of fame: ")
+print("\n")
 if winner == "Player 1":
     winner_username = player1.user_name
     winner_score = player1.points
@@ -184,8 +185,21 @@ else:
     winner_username = player2.user_name
     winner_score = player2.points
 
-with open("Winners.csv", mode='w') as winner_file:
-    winner_writer = csv.writer(winner__file__, delimiter = ',')
+with open("Winners.csv", mode='a', newline='') as winner_file:
+    winner_writer = csv.writer(winner_file, delimiter = ',')
     winner_writer.writerow([winner_username, winner_name, str(winner_score)])
 
 
+# 8.Displays the score and player name of the top 5 winning scores from the external file
+
+with open("Winners.csv", 'r') as winners_list:
+    winner_reader = csv.reader(winners_list)
+    winner_list = list(winner_reader)
+
+sorted_winners = sorted(winner_list, key=lambda x: int(x[2]), reverse=True)
+
+print("Top 5 players so far...\n")
+for i in range(0,5):
+    print(str(i+1) + " " + sorted_winners[i][0] + " " + sorted_winners[i][1] + " " + 
+          sorted_winners[i][2])
+print("\n")
